@@ -3,11 +3,10 @@
 Clojure project for IDEAL MOOC experiments.
 
 For more info on IDEAL MOOC see:
-
-Registration: http://liris.cnrs.fr/ideal/mooc/
-Syllabus: http://liris.cnrs.fr/ideal/mooc/syllabus.html
-Lessons: http://liris.cnrs.fr/ideal/mooc/lesson.php
-Community: https://plus.google.com/u/0/communities/109445848302721599408
+  * Registration: http://liris.cnrs.fr/ideal/mooc/
+  * Syllabus: http://liris.cnrs.fr/ideal/mooc/syllabus.html
+  * Lessons: http://liris.cnrs.fr/ideal/mooc/lesson.php
+  * Community: https://plus.google.com/u/0/communities/109445848302721599408
 
 ** Usage
 

@@ -26,8 +26,9 @@
     (loop [i 0
            experiment :e1
            result nil
+           satisfied-duration 0
            mood nil]
-      (let [experiment (if (= mood :pained)
+      (let [experiment (if (or (= mood :pained) (= mood :bored))
                          (get-other-experiment experiment)
                          experiment)
             result (if (= experiment :e1)
@@ -35,14 +36,20 @@
                      :r2)
             enacted-interaction-valence (get interactions
                                              [experiment result])
-            mood (if (>= enacted-interaction-valence 0)
-                   :pleased
-                   :pained)]
+            satisfied-duration (if (= mood :pleased)
+                                 (inc satisfied-duration)
+                                 0)
+            mood (if (< enacted-interaction-valence 0)
+                   :pained
+                   (if (> satisfied-duration 3)
+                     :bored
+                     :pleased))]
         (println (str i ": " (name experiment) (name result) " " mood))
         (Thread/sleep 500)
         (recur (inc i)
                experiment
                result
+               satisfied-duration
                mood)))))
 
 (defn -main

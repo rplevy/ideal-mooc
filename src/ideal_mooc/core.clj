@@ -12,17 +12,18 @@
    The Main Class runs the Existence step by step in a loop.
    and prints the Existence's activity as it runs."
   [& args]
-  (let [existence (Existence010.)
+  (let [;; existence (Existence010.)
         ;; ^^ Change this line to instantiate another existence
-        ;; existence (Existence020.)
+        existence (Existence020.)
         ;; existence (Existence030.)
         ;; existence (Existence031.)
         ;; existence (Existence032.)
         ;; existence (Existence040.)
         ;; existence (Existence050.)
         ;; existence (Existence051.)
-
-        cycles 20]
-    (doseq [i (range cycles)
-            :let [step-trace (.step existence)]]
-      (println (str i ": " + step-trace)))))
+        ]
+    (loop [i 0]
+      (let [step-trace (.step existence)]
+        (println (str i ": " step-trace))
+        (Thread/sleep 500)
+        (recur (inc i))))))

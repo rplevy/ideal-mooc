@@ -16,5 +16,5 @@ the course, as we see fit.
 
 src/ contains our Clojure code.
 
-lein run presently executes the first experiment without any
+*lein run* presently executes the first experiment without any
 modifications.
